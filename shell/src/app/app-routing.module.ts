@@ -8,6 +8,10 @@ const routes: Routes = [
     component: HomeComponent,
     pathMatch: 'full',
   },
+  // {
+  //   path: 'demo',
+  //   loadChildren: () => import('mfe1/Module').then((m) => m.DemoModule)
+  // }
 ];
 
 @NgModule({
