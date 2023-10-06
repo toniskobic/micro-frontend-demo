@@ -1,0 +1,40 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border-radius: 4px;
+  padding: 20px;
+  gap: 20px;
+}
+
+.text {
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    border-radius: 4px;
+    border: none;
+    padding: 8px 16px;
+    color: white;
+    background-color: #1976d2;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+}
+
+.elevation {
+  box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
+}

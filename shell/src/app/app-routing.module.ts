@@ -6,16 +6,12 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
-  {
-    path: 'demo',
-    loadChildren: () => import('mfe1/Module').then(m => m.DemoModule)
-  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
