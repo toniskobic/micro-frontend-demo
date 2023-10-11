@@ -8,6 +8,7 @@ import {
 import { SelectModuleComponent } from './components/select-module/select-module.component';
 import { ModuleLazyLoaderService } from './services/module-lazy-loader.service';
 import { Subscription } from 'rxjs';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -22,20 +23,24 @@ export class AppComponent implements OnInit, OnDestroy {
 
   subscriptions: Subscription[] = [];
 
-  constructor(private moduleLazyLoaderService: ModuleLazyLoaderService) {}
+  constructor(private moduleLazyLoaderService: ModuleLazyLoaderService, public auth: AuthService) { }
 
   ngOnInit(): void {
-    this.subscriptions.push(
-      this.moduleLazyLoaderService.routeAdded$.subscribe(
-        () => (this.isLoaded = true)
-      )
-    );
-    const ref = this.container.createComponent(SelectModuleComponent);
-    ref.setInput('container', this.container);
+    // this.subscriptions.push(
+    //   this.moduleLazyLoaderService.routeAdded$.subscribe(
+    //     () => (this.isLoaded = true)
+    //   )
+    // );
+    // const ref = this.container.createComponent(SelectModuleComponent);
+    // ref.setInput('container', this.container);
   }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((s) => s.unsubscribe());
     this.subscriptions = [];
+  }
+
+  setUsername(username: string) {
+    this.auth.setUsername(username);
   }
 }

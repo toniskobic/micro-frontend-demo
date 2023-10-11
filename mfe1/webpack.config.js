@@ -3,30 +3,27 @@ const {
   withModuleFederationPlugin,
 } = require("@angular-architects/module-federation/webpack");
 
+
 module.exports = withModuleFederationPlugin({
   name: "mfe1",
 
   exposes: {
-    "./Module": "./src/app/modules/demo/demo.module.ts",
+    './web-components': './src/bootstrap.ts',
   },
 
   // Explicitly share packages:
   shared: share({
     "@angular/core": {
-      singleton: true,
-      requiredVersion: "^15.2.0",
+      requiredVersion: "auto",
     },
     "@angular/common": {
-      singleton: true,
-      requiredVersion: "^15.2.0",
+      requiredVersion: "auto",
     },
     "@angular/common/http": {
-      singleton: true,
-      requiredVersion: "^15.2.0",
+      requiredVersion: "auto",
     },
     "@angular/router": {
-      singleton: true,
-      requiredVersion: "^15.2.0",
+      requiredVersion: "auto",
     },
   }),
 });

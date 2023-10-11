@@ -1,5 +1,6 @@
 const {
-  share,
+  // share
+  shareAll,
   withModuleFederationPlugin,
 } = require("@angular-architects/module-federation/webpack");
 
@@ -9,22 +10,26 @@ module.exports = withModuleFederationPlugin({
   },
 
   // Explicitly share packages:
-  shared: share({
-    "@angular/core": {
-      singleton: true,
-      requiredVersion: "^16.2.0",
-    },
-    "@angular/common": {
-      singleton: true,
-      requiredVersion: "^16.2.0",
-    },
-    "@angular/common/http": {
-      singleton: true,
-      requiredVersion: "^16.2.0",
-    },
-    "@angular/router": {
-      singleton: true,
-      requiredVersion: "^16.2.0",
-    },
-  }),
+  shared: {
+    ...shareAll({
+      requiredVersion: 'auto'
+    })
+  }
+  // share({
+  //   "@angular/core": {
+  //     singleton: true,
+  //     requiredVersion: "^16.2.0",
+  //   },
+  //   "@angular/common": {
+  //     singleton: true,
+  //     requiredVersion: "^16.2.0",
+  //   },
+  //   "@angular/common/http": {
+  //     singleton: true,
+  //     requiredVersion: "^16.2.0",
+  //   },
+  //   "@angular/router": {
+  //     singleton: true,
+  //     requiredVersion: "^16.2.0",
+  //   },
 });
