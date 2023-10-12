@@ -8,8 +8,7 @@ export class AuthService {
   username: string = '';
 
   constructor() {
-    if (!!(window as any).authService) return (window as any).authService;
-    (window as any).authService = this;
+    if (!(window as any).authService) (window as any).authService = this;
   }
 
   setUsername(username: string) {

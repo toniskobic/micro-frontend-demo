@@ -25,5 +25,8 @@ module.exports = withModuleFederationPlugin({
     "@angular/router": {
       requiredVersion: "auto",
     },
+    "useless-lib": {
+      requiredVersion: "auto"
+    }
   }),
 });

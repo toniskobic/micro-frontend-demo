@@ -9,6 +9,7 @@ import { SelectModuleComponent } from './components/select-module/select-module.
 import { ModuleLazyLoaderService } from './services/module-lazy-loader.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from './services/auth.service';
+import { version } from 'useless-lib';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
   container!: ViewContainerRef;
 
   isLoaded = false;
+  uselessLibVersion = version;
 
   subscriptions: Subscription[] = [];
 
